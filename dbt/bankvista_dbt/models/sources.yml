@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    database: BANKVISTA
+    schema: RAW
+    tables:
+      - name: CUSTOMER_PROFILES
+      - name: BANK_ACCOUNTS
+      - name: ACCOUNT_TRANSACTIONS
+    

@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: stg_account_transactions
+    columns:
+      - name: transaction_id
+        tests: [unique, not_null]
+      - name: amount
+        tests: [not_null]
+      - name: transaction_type
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['CREDIT', 'DEBIT']
+
+  - name: stg_bank_accounts
+    columns:
+      - name: account_id
+        tests: [unique, not_null]
+      - name: account_type
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Savings', 'Loan', 'FixedDeposit']
+
+  - name: stg_customer_profiles
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
