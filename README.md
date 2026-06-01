@@ -20,7 +20,7 @@ graph TD
     Local_CSVs[("📄 Raw CSVs <br> (data/)")] -->|Ingested by| Load_Script["load_raw.py"]:::loader
     Load_Script -->|write_pandas| Snowflake_Raw[("❄️ Snowflake: BANKVISTA.RAW")]:::raw
     
-    subgraph dbt Transformation Pipeline (bankvista_dbt)
+    subgraph "dbt Transformation Pipeline (bankvista_dbt)"
         Snowflake_Raw -->|Casts & Cleanses| Staging_Layer["Staging Layer (Silver)"]:::staging
         Staging_Layer -->|stg_customer_profiles| Mart_360["mart_customer_360"]:::marts
         Staging_Layer -->|stg_bank_accounts| Mart_360
